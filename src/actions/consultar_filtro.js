@@ -1,7 +1,7 @@
 
-const consultar_filtro = filtro =>({
+const consultar_filtro = ordenes =>({
     type:"CONSULTAR",
-    filtro
+    ordenes
 });
 
 export default consultar_filtro;

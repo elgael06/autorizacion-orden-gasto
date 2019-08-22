@@ -1,10 +1,11 @@
 
-const EstatusOrdenDeGasto =(state=[],actions)=>{
+const EstatusOrdenDeGasto =(state="Pendiente",actions)=>{
     switch(actions.type){
         case "ADD":
+            console.log("filtro=>",actions.filtro)
             return actions.filtro;
         default:
-            return "";
+            return state;
     }
 }
 

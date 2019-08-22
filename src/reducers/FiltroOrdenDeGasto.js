@@ -1,10 +1,9 @@
-import conexion_ordenes_filtro from "../conections/conexion_ordenes_filtro";
 
-const FiltroOrdenDeGasto = async (state=[],actions)=>{
+const FiltroOrdenDeGasto = (state=[],actions)=>{
     switch(actions.type){
     case "CONSULTAR":
-        let res = await conexion_ordenes_filtro(actions.filtro)
-        return res;
+        console.log("Ordenes=>", actions.ordenes);
+        return actions.ordenes;
     case "RESET":
         return []
     default:

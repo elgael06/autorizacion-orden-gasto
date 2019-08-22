@@ -3,11 +3,13 @@ import { combineReducers } from 'redux';
 import ordenes from './FiltroOrdenDeGasto';
 import filtro from './EstatusOrdenDeGasto';
 import orden from './OrdenGasto';
+import filtrado_tabla from './DetallesFiltradoTabla';
 
 const reducers = combineReducers({
     ordenes,
     filtro,
-    orden
+    orden,
+    filtrado_tabla
 });
 
 export default reducers;

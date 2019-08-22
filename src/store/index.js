@@ -5,8 +5,9 @@ import reducers from '../reducers';
 
 const initialState = {
     ordenes:[],
-    filtro:"",
-    orden:{}
+    filtro:"Pendiente",
+    orden:{},
+    filtrado_tabla:""
 };
 
 const store = createStore(reducers,initialState);

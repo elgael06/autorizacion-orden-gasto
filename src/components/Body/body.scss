@@ -1,0 +1,21 @@
+.contenedor-tabla{
+    overflow: auto;
+    max-height: 700px;
+    background:#FFF;
+    table thead{
+        display: normal;
+        position: sticky;
+        width: 100%;
+        top: -1px;
+        z-index: 990;
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 990;
+        }
+    };
+    u:hover{
+        color: #a9adb8;
+        cursor: pointer;
+    }
+}
