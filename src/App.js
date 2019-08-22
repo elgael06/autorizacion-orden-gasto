@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import consultar_filtro from './actions/consultar_filtro';
+import { connect } from 'react-redux';
 
-function App() {
+function App({consultar}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+       <h3>listo...</h3>
     </div>
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch =>({
+  consultar(filtro){
+    dispatch(consultar_filtro(filtro));
+    },
+});
+
+export default connect(mapDispatchToProps,{})(App);
