@@ -36,7 +36,7 @@ const Cavecera =({filtro,cambioOrrdenes,evFiltro,cargando,evCargar})=>{
     }
 
     return (<div className="row p-3">
-    <h5 className="col-sm-12 p-2">Ordenes de Compra Interna</h5> 
+    <h5 className="col-sm-12 p-2">Autorizacio De Ordenes De Gasto.</h5> 
     <hr />
     <h6 className="col-sm-2">Tipo Orden :</h6>
     <section className="col-sm-6">
