@@ -24,6 +24,5 @@ const mapDispatchToProps = dispatch =>({
           dispatch(mostrarModal(true))
         }
   });
-
   
 export default connect(mapStateProps,mapDispatchToProps)(TablaOrdenes);

@@ -5,15 +5,19 @@ import conexion_orden_gasto_folio from '../../conections/conexion_orden_gasto_fo
 
 const TablaOrdenes =({ordenes,filtro,seleccionOrden,cargandoOrden,evMostrarModal})=>{
     //funciones
-    const consultar = async folio =>{
-        console.log("Folio Orden=>",folio);
+    const consultar = async orden =>{
+        console.log("Folio Orden=>",orden.folio);
         cargandoOrden(true)
-        let respuesta = await conexion_orden_gasto_folio(folio);
-        console.log(respuesta)
+        let respuesta = await conexion_orden_gasto_folio(orden.folio);
         setTimeout(()=>{
             cargandoOrden(false)
         if(respuesta.length>0){
-            seleccionOrden(respuesta[0]);
+            const seleccion ={
+                ...orden,
+                productos:respuesta
+            }
+            console.log(seleccion)
+            seleccionOrden(seleccion);
             evMostrarModal();
         }
         },700)
@@ -46,7 +50,7 @@ return (<div className="contenedor-tabla">
     </thead>
     <tbody>
         {ordenes.filter(f=>f.folio.toString().search(filtro)>-1).map((orden,index) =><tr key={orden.folio+"-"+index}>
-            <td onClick={()=>consultar(orden.folio)}><u><b>{orden.folio}</b></u></td>     
+            <td onClick={()=>consultar(orden)}><u><b>{orden.folio}</b></u></td>     
             <td>{orden.proveedor}</td> 
             <td>{orden.concepto_solicitud}</td> 
             <td>{orden.descripcion_gasto}</td> 
