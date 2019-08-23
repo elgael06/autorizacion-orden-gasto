@@ -1,8 +1,12 @@
 //librerias
+//libreria
 import React from 'react';
+//estilos
+import './autorizacion.scss';
 
 const TablaProductos=({productos})=>{
-    return (<table className="table table-sm">
+    return (
+        <div className="contenedor_productos"><table className="table table-sm">
         <thead>
             <tr>
                 <th className="bg-light">Descripcion</th>
@@ -14,12 +18,19 @@ const TablaProductos=({productos})=>{
         <tbody>
             {productos.map((producto,index)=><tr key={producto.folio+"_"+index}>
                 <td>{producto.descripcion_producto}</td>
-                <td>{producto.cantidad}</td>
-                <td>${producto.precio_unitario}</td>
-                <td>${producto.precio_unitario*producto.cantidad}</td>
+                <td>
+                    <label  className="float-right">{producto.cantidad}</label>
+                </td>
+                <td>
+                    <label  className="float-right">${producto.precio_unitario}</label>
+                </td>
+                <td>
+                    <label  className="float-right">${producto.precio_unitario*producto.cantidad}</label>
+                </td>
             </tr>)}
         </tbody>
-    </table>);
+    </table>
+    </div>);
 }
 
 export default TablaProductos;

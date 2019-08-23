@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 import './App.css'
-//actions
-
 //componentes
 import Cavecera from '../containers/CaveceraApp';
 import CuerpoApp from '../containers/CuerpoApp';

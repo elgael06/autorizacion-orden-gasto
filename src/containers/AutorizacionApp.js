@@ -5,7 +5,8 @@ import mostrarModal from '../actions/mostrar_modal_autorizacion';
 
 //funciones states
 const mapStateProps=state=>({
-    vista:state.vista_modal_autorizacion
+    vista:state.vista_modal_autorizacion,
+    orden:state.orden
  });
 
 const mapDispatchToProps = dispatch =>({
