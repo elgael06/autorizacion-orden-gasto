@@ -1,5 +1,5 @@
 //librerias
-import React,{Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 //estylos
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,9 +8,8 @@ import './App.css'
 //actions
 
 //componentes
-import Cavecera from './header';
-import CuerpoApp from './Body';
-import FitroTabla from './Filtrado';
+import Cavecera from '../containers/CaveceraApp';
+import CuerpoApp from '../containers/CuerpoApp';
 import Mensaje from './Mensaje';
 
 
@@ -18,13 +17,7 @@ function App({status_ordenes}) {
   return (
     <div className="container bg-light  border-1 App">
       <Cavecera />
-      {status_ordenes ?
-      <Fragment>
-          <FitroTabla/>
-          <CuerpoApp />
-        </Fragment>
-        :<Mensaje />
-      }
+      {status_ordenes ?<CuerpoApp />  : <Mensaje />}
     </div>
   );
 }

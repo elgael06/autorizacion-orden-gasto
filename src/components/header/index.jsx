@@ -1,14 +1,8 @@
 //librerias
 import React from 'react';
-import { connect } from 'react-redux';
 //estilos
-
 //conexion 
 import conexion_ordenes_filtro from "../../conections/conexion_ordenes_filtro";
-//actions
-import consultar_filtro from '../../actions/consultar_filtro';
-import cambio_filtro from '../../actions/cambio_estatus';
-import cargando_tabla from '../../actions/cargando_tabla';
 //componentes
 import BtnConsulta from './BtnConsulta';
 
@@ -16,7 +10,6 @@ import BtnConsulta from './BtnConsulta';
 const tipos_orden =["Autorizado","Pendiente","Cancelado","Negado","Finalizado","Terminado","En  Validacion","Pago Cheque"];
 
 const Cavecera =({filtro,cambioOrrdenes,evFiltro,cargando,evCargar})=>{
-
     //funciones
     const cambiar= async e=>{
         console.log(filtro);
@@ -53,23 +46,4 @@ const Cavecera =({filtro,cambioOrrdenes,evFiltro,cargando,evCargar})=>{
     </section>
 </div>);
 }
-
-//funciones map
-const mapStateProps=state=>({
-    filtro:state.filtro,
-    cargando:state.cargando_tabla
-  });
-
-const mapDispatchToProps = dispatch =>({
-    cambioOrrdenes(ordenes){
-      dispatch(consultar_filtro(ordenes));
-      },
-      evFiltro(filtro){
-          dispatch(cambio_filtro(filtro))
-      },
-      evCargar(estado){
-        dispatch(cargando_tabla(estado))
-      }
-  });
-
-export default connect(mapStateProps,mapDispatchToProps)(Cavecera);
+export default Cavecera;
