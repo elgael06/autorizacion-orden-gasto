@@ -4,6 +4,7 @@ import React from 'react';
 import ModalBase from '../ModalBase';
 import BtnEstatusAut from './BtnEstatusAut';
 import TablaProductos from '../../containers/ProductosApp';
+import DetallesOrden from './DetallesOrden';
 
 const Autorizacion =({orden,vista,evMostrarModal})=>{
     //funciones
@@ -11,9 +12,21 @@ const Autorizacion =({orden,vista,evMostrarModal})=>{
         console.log("cerrar...");
         evMostrarModal(false);
     }
+    const onAutorizar=estatus=>{
+        console.log("Autorizacion Orden =>",estatus);
+    }
+    
     return !vista || (<ModalBase titulo={"Autorizacion De Orden De Gasto"} onCerrar={onCerrar}>
-        <BtnEstatusAut />
-        <TablaProductos />
+        <div style={{overflow:"auto",maxHeight:"130px"}}>
+            <BtnEstatusAut onAutorizar={onAutorizar} />
+        </div>
+        <div style={{overflow:"auto",maxHeight:"300px"}}>
+            <DetallesOrden orden={orden} />
+        </div>
+        <hr />
+        <div style={{overflow:"auto",maxHeight:"300px"}}>
+            <TablaProductos />
+        </div>
         <section className="float-right p-2">
             Importe Total :
           <b> <u>  $ {orden.importe_total}</u></b>
