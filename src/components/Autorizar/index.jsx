@@ -6,16 +6,17 @@ import BtnEstatusAut from './BtnEstatusAut';
 import TablaProductos from '../../containers/ProductosApp';
 import DetallesOrden from './DetallesOrden';
 
-const Autorizacion =({orden,vista,evMostrarModal})=>{
+const Autorizacion =({orden,vista,evCerrarModal,evLimpiarStore})=>{
     //funciones
     const onCerrar =()=>{
         console.log("cerrar...");
-        evMostrarModal(false);
+        evCerrarModal(false);
     }
     const onAutorizar=estatus=>{
         console.log("Autorizacion Orden =>",estatus);
+        evLimpiarStore();
     }
-    
+
     return !vista || (<ModalBase titulo={"Autorizacion De Orden De Gasto"} onCerrar={onCerrar}>
         <div style={{overflow:"auto",maxHeight:"130px"}}>
             <BtnEstatusAut onAutorizar={onAutorizar} />
