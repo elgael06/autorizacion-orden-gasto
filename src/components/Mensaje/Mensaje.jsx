@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //componentes
-import Cargando from './Cargando/';
+import Cargando from '../Cargando';
 
 const Mensaje =({cargando})=>cargando?<Cargando />
 :<div className="card bg-warning p-4">

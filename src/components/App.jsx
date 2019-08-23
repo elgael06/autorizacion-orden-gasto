@@ -10,14 +10,16 @@ import './App.css'
 //componentes
 import Cavecera from '../containers/CaveceraApp';
 import CuerpoApp from '../containers/CuerpoApp';
-import Mensaje from './Mensaje';
+import Mensaje from './Mensaje/Mensaje';
+import AutorizacionApp from '../containers/AutorizacionApp';
 
 
 function App({status_ordenes}) {
   return (
     <div className="container bg-light  border-1 App">
       <Cavecera />
-      {status_ordenes ?<CuerpoApp />  : <Mensaje />}
+	  {status_ordenes ?<CuerpoApp />  : <Mensaje />}
+	  <AutorizacionApp />
     </div>
   );
 }

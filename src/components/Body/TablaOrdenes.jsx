@@ -3,19 +3,21 @@ import React from 'react';
 //conexiones
 import conexion_orden_gasto_folio from '../../conections/conexion_orden_gasto_folio';
 
-const TablaOrdenes =({ordenes,filtro,seleccionOrden,orden,cargandoOrden})=>{
+const TablaOrdenes =({ordenes,filtro,seleccionOrden,cargandoOrden,evMostrarModal})=>{
     //funciones
     const consultar = async folio =>{
         console.log("Folio Orden=>",folio);
         cargandoOrden(true)
         let respuesta = await conexion_orden_gasto_folio(folio);
         console.log(respuesta)
-        setTimeout(()=>cargandoOrden(false),700)
+        setTimeout(()=>{
+            cargandoOrden(false)
         if(respuesta.length>0){
             seleccionOrden(respuesta[0]);
+            evMostrarModal();
         }
+        },700)
     }
-    console.log("Orden=>",orden)
 return (<div className="contenedor-tabla">
 <table className="table table-hover">
     <thead className="bg-primary text-white">
@@ -49,7 +51,7 @@ return (<div className="contenedor-tabla">
             <td>{orden.concepto_solicitud}</td> 
             <td>{orden.descripcion_gasto}</td> 
             <td>{orden.establecimiento}</td> 
-            <td>{orden.importe_total}</td> 
+            <td>${orden.importe_total}</td> 
             <td>{orden.usuario_solicita}</td> 
             <td>{orden.fecha}</td> 
             <td>{orden.estatus}</td> 

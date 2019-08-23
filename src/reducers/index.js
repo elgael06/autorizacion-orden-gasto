@@ -7,6 +7,7 @@ import orden from './OrdenGasto';
 import filtrado_tabla from './DetallesFiltradoTabla';
 import cargando_tabla from './CargandoTabla';
 import cargando_orden from './CargandoOrden';
+import vista_modal_autorizacion from './VistaModalAutorizacion';
 
 const reducers = combineReducers({
     ordenes,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     orden,
     filtrado_tabla,
     cargando_tabla,
-    cargando_orden
+    cargando_orden,
+    vista_modal_autorizacion
 });
 
 export default reducers;

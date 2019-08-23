@@ -9,7 +9,8 @@ const initialState = {
     orden:{},
     filtrado_tabla:"",
     cargando_tabla:false,
-    cargando_orden:false
+    cargando_orden:false,
+    vista_modal_autorizacion:false
 };
 
 const store = createStore(reducers,initialState);

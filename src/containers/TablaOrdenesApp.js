@@ -5,12 +5,12 @@ import seleccion_orden from '../actions/seleccion_orden';
 import cargando_orden from '../actions/cargando_orden';
 //componente
 import TablaOrdenes from '../components/Body/TablaOrdenes';
+import mostrarModal from '../actions/mostrar_modal_autorizacion';
 
 //funciones  states
 const mapStateProps=state=>({
     ordenes:state.ordenes,
     filtro:state.filtrado_tabla,
-    orden:state.orden
   });
 
 const mapDispatchToProps = dispatch =>({
@@ -19,6 +19,9 @@ const mapDispatchToProps = dispatch =>({
         },
         cargandoOrden(estatus){
             dispatch(cargando_orden(estatus))
+        },
+        evMostrarModal(){
+          dispatch(mostrarModal(true))
         }
   });
 
