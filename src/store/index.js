@@ -8,7 +8,8 @@ const initialState = {
     filtro:"Pendiente",
     orden:{},
     filtrado_tabla:"",
-    cargando_tabla:false
+    cargando_tabla:false,
+    cargando_orden:false
 };
 
 const store = createStore(reducers,initialState);

@@ -7,19 +7,24 @@ import './body.scss'
 import conexion_orden_gasto_folio from '../../conections/conexion_orden_gasto_folio';
 //actions
 import seleccion_orden from '../../actions/seleccion_orden';
+import cargando_orden from '../../actions/cargando_orden';
+//componentes
+import Cargando from '../Cargando';
 
-const CuerpoApp =({ordenes,filtro,seleccionOrden,orden})=>{
+const CuerpoApp =({ordenes,filtro,seleccionOrden,orden,cargando,cargandoOrden})=>{
     //funciones
     const consultar = async folio =>{
         console.log("Folio Orden=>",folio);
+        cargandoOrden(true)
         let respuesta = await conexion_orden_gasto_folio(folio);
         console.log(respuesta)
+        setTimeout(()=>cargandoOrden(false),700)
         if(respuesta.length>0){
             seleccionOrden(respuesta[0]);
         }
     }
     console.log("Orden=>",orden)
-    return (<div className="contenedor-tabla">
+    return cargando ? <Cargando /> : (<div className="contenedor-tabla">
     <table className="table table-hover">
         <thead className="bg-primary text-white">
             <tr >
@@ -77,12 +82,16 @@ const CuerpoApp =({ordenes,filtro,seleccionOrden,orden})=>{
 const mapStateProps=state=>({
     ordenes:state.ordenes,
     filtro:state.filtrado_tabla,
-    orden:state.orden
+    orden:state.orden,
+    cargando:state.cargando_orden
   });
 
 const mapDispatchToProps = dispatch =>({
         seleccionOrden(orden){
             dispatch(seleccion_orden(orden))
+        },
+        cargandoOrden(estatus){
+            dispatch(cargando_orden(estatus))
         }
   });
 
